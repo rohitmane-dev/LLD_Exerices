@@ -115,5 +115,19 @@ public class Strategy {
 
         robot.setFlyBehavior(new NormalFly());
         robot.performFly();
+
+
+        //similarly i can create a another robot with different behaviors
+        System.out.println("--- Creating another robot with different behaviors ---");
+        Robot robo = new Robot(
+            new NoTalk(),
+            new NoWalk(),
+            new NormalFly()
+        ); //this robot can fly but cannot talk or walk
+        robo.performFly();
+        robo.performTalk();
+        robo.performWalk();
+
+
     }
 }
