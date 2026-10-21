@@ -1,21 +1,25 @@
-
 class single {
-    private static single instance = null;
 
+    // EAGER INITIALIZATION:
+    // The instance is created when the class is loaded.
+    // It is inherently thread-safe because class initialization
+    // is handled by the JVM.
+    private static final single instance = new single();
+
+    // Private constructor prevents object creation from outside.
     private single() {
-        // private constructor to prevent instantiation
     }
 
+    // EAGER INITIALIZATION:
+    // No locking is required because the instance already exists.
     public static single getInstance() {
-        if (instance == null) {
-            instance = new single();
-        }
         return instance;
     }
 }
 
 public class Single {
     public static void main(String[] args) {
+
         single obj1 = single.getInstance();
         single obj2 = single.getInstance();
 
